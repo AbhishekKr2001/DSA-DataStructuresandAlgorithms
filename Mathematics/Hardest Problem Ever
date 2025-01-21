@@ -1,0 +1,53 @@
+#include<iostream>
+using namespace std;
+int gcd_calc(int a,int b){
+    int max_elem = max(a,b),min_elem = min(a,b);
+    int remainder = max_elem%min_elem,gcd = min_elem;
+    if(remainder == 0){
+        gcd = min_elem;
+    }
+    while(remainder != 0){
+        int temp = min_elem;
+        min_elem = remainder;
+        max_elem = temp;
+        remainder = max_elem % min_elem;
+        gcd = min_elem;
+    }
+    return gcd;
+}
+int main() {
+ 
+    int testcases;
+    cin>>testcases;
+    int final_result = 0;
+    for (int i = 0; i < testcases; i++)
+    {
+        int n;
+        cin>>n;
+ 
+        int arr[n];
+ 
+        for (int i = 0; i < n; i++)
+        {
+            cin>>arr[i];
+        }
+ 
+        final_result = arr[0];
+        for (int i = 1; i < n; i++)
+        {
+            final_result = gcd_calc(arr[i],final_result);
+        }
+ 
+ 
+    if(final_result == 1){
+        cout<<"1"<<" \n";
+        //break;
+    }
+    else{
+        cout<<"0"<<" \n";
+    }
+ 
+ 
+    }
+    return 0;
+}

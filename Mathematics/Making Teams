@@ -1,0 +1,83 @@
+#include <iostream>
+ 
+using namespace std;
+ 
+int main() {
+ 
+   // your code goes here
+      long long pas[61][61];
+ 
+      pas[0][0] = 1;
+ 
+      for (int i = 0; i < 61; i++) {
+ 
+         for (int j = 0; j <= i; j++) {
+ 
+            if (j == 0 || j == i) {
+ 
+               pas[i][j] = 1;
+ 
+            }
+ 
+            else {
+ 
+               pas[i][j] = pas[i - 1][j] + pas[i - 1][j - 1];
+ 
+            }
+ 
+         }
+ 
+      }
+ 
+   int t;
+ 
+   cin >> t;
+ 
+   for (int p = 0; p < t; p++) {
+ 
+      long long n, m, x;
+ 
+      cin >> n >> m >> x;
+ 
+ 
+      long long ans = 0;
+ 
+      ans += pas[n + m][x];
+ 
+      if (x <= m) {
+ 
+         ans -= pas[m][x];
+ 
+      }
+ 
+      if (x - 1 <= m) {
+ 
+         ans -= pas[m][x - 1] * n;
+ 
+      }
+ 
+      if (x - 2 <= m) {
+ 
+         ans -= pas[m][x - 2] * (n * (n - 1) / 2);
+ 
+      }
+ 
+      if (x - 3 <= m) {
+ 
+         ans -= pas[m][x - 3] * (n * (n - 1) * (n - 2) / 6);
+ 
+      }
+ 
+      if (x <= n) {
+ 
+         ans -= pas[n][x];
+ 
+      }
+ 
+      cout << ans << endl;
+ 
+   }
+ 
+   return 0;
+ 
+}

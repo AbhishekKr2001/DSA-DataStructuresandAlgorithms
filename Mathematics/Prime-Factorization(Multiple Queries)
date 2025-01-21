@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    long long limit=1000000;
+    long long spf[limit+1];
+    for(long long i=2;i<=limit;i++)
+    {
+        spf[i]=i;
+    }
+    for(long long i=2;i<=limit;i++)
+    {
+        if(spf[i]==i)
+        {
+            for( long long j=i*i;j<=limit;j+=i)
+            {
+                if(spf[j]==j)
+                {
+                    spf[j]=i;
+                }
+            }
+        }
+    }
+    int testcases;
+    cin>>testcases;
+    while(testcases--)
+    {
+        long long n;
+        cin>>n;
+        long long temp=n;
+       map<int,int>store;
+       
+        while(n!=1)
+        {
+            store[spf[n]]++;
+            n=n/spf[n];
+        }
+       
+        for(auto ch:store)
+        { 
+            cout<<ch.first<<" "<<ch.second<<endl;
+        }
+        
+    }
+    return 0;
+}

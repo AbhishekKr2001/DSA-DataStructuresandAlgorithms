@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int t;cin>>t;
+    //generating catalan numbers
+ 
+    long long catalan[1001];
+    int m=1000000007;
+    catalan[0]=1;
+    catalan[1]=1;
+    for(int i=2;i<1001;i++){
+        catalan[i]=0;
+        for(int j=0;j<i;j++){
+            catalan[i] =(catalan[i] + catalan[j]*catalan[i-1-j])%m;
+        }
+    }
+ 
+    while(t--){
+        int n;cin>>n;
+        long long ans;
+        if(n%2!=0) ans=-1;
+        else ans=catalan[n/2];
+ 
+        cout<<ans<<endl;
+    }
+    return 0;
+}

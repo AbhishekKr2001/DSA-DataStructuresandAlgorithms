@@ -1,0 +1,47 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+ 
+// Function to generate prime numbers up to 10^6 using the Sieve of Eratosthenes
+vector<int> getPrimes(){ 
+    vector<int> isPrime(1000000+1,1);
+    isPrime[0]=isPrime[1]=0;
+ 
+    for(int i=2;i*i<=1000000;i++){
+        if(isPrime[i]==1){
+            for(int j=i;j*i<=1000000;j++){
+                isPrime[j*i]=0;
+            }
+        }
+    }
+     // Collect prime numbers into the 'primes' vector
+    vector<int> primes;
+    for(int i=2;i<=1000000;i++){
+        if(isPrime[i]==1) primes.push_back(i);
+    }
+    return primes;
+}
+int main() {
+   int t;cin>>t;
+   vector<int> primes=getPrimes();
+   while(t--){
+       long long l,r;cin>>l>>r;  //changed to long long
+       vector<bool> isPrime(r-l+1,true);
+       for(int i=0;i<primes.size();i++){
+           int k=ceil((1.0*l)/primes[i]);
+           for(int j=max(k,2);primes[i]*j<=r;j++){
+               isPrime[primes[i]*j-l]=false;
+           }
+       }
+       long long product=1; //changed to long long
+       int m=1000000007;
+       for(int i=0;i<isPrime.size();i++){ // till i<isPrime.size()
+           if(isPrime[i]){
+               product=(product*(i+l))%m;
+           }
+       }
+       cout<<product<<endl;
+   }
+    return 0;
+}

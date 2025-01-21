@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+long long GCD(long long a,long long b){
+     long long maxm=max(a,b);
+   long long minm=min(a,b);
+   long long temp;
+   
+   if(minm==0){
+       return maxm;
+   }
+   while(maxm%minm!=0){
+       temp=maxm;
+       maxm=minm;
+       minm=temp%minm;
+       
+   }
+   return minm;
+}
+int main() {
+    int testcases;
+    cin>>testcases;
+    while(testcases--){
+        long long n,a,b,k;
+        cin>>n>>a>>b>>k;
+        
+        long long gc=GCD(a,b);
+        long long lc=(a*b)/gc;
+        
+        long long result=(n/a)+(n/b)-2*(n/lc);
+       
+        if(result>=k)
+        {
+            cout<<"Win"<<endl;
+        }else
+        {
+            cout<<"Lose"<<endl;
+        }
+       
+    }
+    return 0;
+}

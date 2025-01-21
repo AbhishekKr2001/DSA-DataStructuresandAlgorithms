@@ -1,0 +1,42 @@
+#include <iostream>
+#include<math.h>
+using namespace std;
+int main() 
+{
+   long long testcases;
+   cin>>testcases;
+   long long limit=1000000;
+    long long store[limit+1];
+   
+    long long prime[limit+1]={0};
+    
+    for(long long i=2;i<=limit;i++)
+    {
+        if(prime[i]==0)
+        {
+            for(long long j=i*i;j<=limit;j+=i)
+            {
+                prime[j]=i;
+            }
+        }
+    }
+    long long count=0;
+    for(long long i=2;i<=limit;i++)
+    {
+        if(prime[i]==0)
+        {
+            count++;
+            
+        }
+        store[i]=count;
+    }
+   
+   while(testcases--){
+       long long n;
+       cin>>n;
+      long long result=store[n];
+      cout<<result<<endl;
+       
+   }
+    return 0;
+}

@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+long long GCD(long long a,long long b){
+     long long maxm=max(a,b);
+   long long minm=min(a,b);
+   long long temp;
+   if(minm==0){
+       return maxm;
+   }
+   while(maxm%minm!=0){
+       temp=maxm;
+       maxm=minm;
+       minm=temp%minm;
+       
+   }
+   return minm;
+}
+int main() {
+   long long a,b;
+   cin>>a>>b;
+  long long gc=GCD(a,b);
+  long long lc=(a*b)/gc;
+  cout<<gc<<" "<<lc;
+    return 0;
+}
