@@ -1,0 +1,28 @@
+#include <iostream>
+#include<string.h>
+using namespace std;
+int main() {
+   string s,t;
+   cin>>s;
+   cin>>t;
+   bool flag=false;
+   int len=s.size();
+   
+   for(int i=0;i<len;i++)
+   {
+       if(s==t)
+       {
+       cout<<"Yes";
+       flag=true;
+       break;
+        }
+       char temp1=s[0];
+       string temp =s.substr(1)+temp1;
+       s=temp;
+   }
+   if(!flag){
+       cout<<"No";
+   }
+   
+    return 0;
+}

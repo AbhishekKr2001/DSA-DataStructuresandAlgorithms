@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cin>>n;
+    int sum=0;
+    int arr[3];
+    int i=0;
+    while(n>0){
+        int last=n%10;
+        arr[i]=last;
+        n/=10;
+        i++;
+    }
+  
+   for(int j=0;j<3;j++){
+        int a2=0;
+       for(int k=0;k<3;k++){
+            a2=a2*10+arr[j%3];
+       }
+       sum+=a2;
+   }
+   cout<<sum;
+  
+   
+    return 0;
+}

@@ -1,0 +1,11 @@
+
+#include <iostream>
+#include<math.h>
+using namespace std;
+int main() {
+   float x;
+   cin>>x;
+   int m=round(x);
+   cout<<m;
+    return 0;
+}

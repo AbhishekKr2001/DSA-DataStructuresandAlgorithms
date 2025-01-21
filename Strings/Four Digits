@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cin>>n;
+    string temp=to_string(n);
+    int len=temp.size();
+    if(len==4){
+        cout<<temp;
+    }
+    else if(len==3){
+        cout<<"0"<<temp;
+    }
+    else if(len==2){
+        cout<<"00"<<temp;
+    }
+    else if(len==1){
+        cout<<"000"<<temp;
+    }
+    else if(len==0){
+        cout<<"0000";
+    }
+    return 0;
+}

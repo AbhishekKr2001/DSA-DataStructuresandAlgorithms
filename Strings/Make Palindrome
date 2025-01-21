@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+int main() {
+    string s;
+    cin>>s;
+    int len=s.size();
+    int count=0;
+    if(len%2!=0)
+    {
+        int mid=(len/2)+1;
+        for(int i=0;i<mid;i++)
+        {
+        if(s[i]!=s[len-1-i])
+        {
+           
+            count++;
+        }
+        }
+    }
+    else if(len%2==0){
+        int mid=len/2;
+        for(int i=0;i<mid;i++)
+        {
+        if(s[i]!=s[len-1-i])
+        {
+           
+            count++;
+        }
+        }
+    }
+    
+    cout<<count;
+    return 0;
+}

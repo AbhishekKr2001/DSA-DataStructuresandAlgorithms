@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+int main() {
+   string  s;
+   cin>>s;
+   int len=s.size();
+   if(s[len-1]=='r' && s[len-2]=='e'){
+       cout<<"er";
+   }
+   else if(s[len-1]=='t' && s[len-2]=='s' && s[len-3]=='i'){
+       cout<<"ist";
+   }
+    return 0;
+}
