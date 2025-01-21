@@ -1,0 +1,43 @@
+#include <iostream>
+#include<algorithm>
+using namespace std;
+int main() {
+    int m,x,y;
+    cin>>m>>x>>y;
+     
+     int arr[m];
+     
+     int sum=x*y;
+     
+     int cover1,cover2;
+    
+     bool check[100]={false};
+     int count=0;
+     
+     for(int i=0;i<m;i++)
+     {
+         
+         cin>>arr[i];
+         
+         cover1=arr[i]-sum-1;
+         cover2=arr[i]+sum-1;
+         
+         cover1=max(cover1,0);
+         cover2=min(cover2,99);
+         
+          for(int j=cover1;j<=cover2;j++)
+          {
+              check[j]=true;
+          }
+         
+        
+     }
+     for(int i=0;i<100;i++){
+         if(check[i]==false){
+             count++;
+         }
+     }
+    cout<<count;
+    
+    return 0;
+}

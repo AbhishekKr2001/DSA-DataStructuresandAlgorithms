@@ -1,0 +1,39 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// Function to determine if Chef can buy a notebook
+string canBuyNotebook(int X, int Y, int K, int N, vector<pair<int, int>>& notebooks) {
+    for (int i = 0; i < N; ++i) {
+        int P = notebooks[i].first;
+        int C = notebooks[i].second;
+        
+        if (P >= X - Y && C <= K) {
+            return "LuckyChef";
+        }
+    }
+    
+    return "UnluckyChef";
+}
+
+int main() {
+    int T;
+    cin >> T;
+
+    while (T--) {
+        int X, Y, K, N;
+        cin >> X >> Y >> K >> N;
+
+        vector<pair<int, int>> notebooks(N);
+
+        for (int i = 0; i < N; ++i) {
+            cin >> notebooks[i].first >> notebooks[i].second;
+        }
+
+        string result = canBuyNotebook(X, Y, K, N, notebooks);
+        cout << result << endl;
+    }
+
+    return 0;
+}

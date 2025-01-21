@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+int main() {
+   int n,k;
+   cin>>n>>k;
+   
+   string arr[n];
+   bool check[n]={false};
+   
+   for(int i=0;i<n;i++)
+   {
+       cin>>arr[i];
+   }
+   
+  for(int i=0;i<k;i++)
+  {
+      int n1;
+      cin>>n1;
+      
+      for(int i=0;i<n1;i++)
+      {
+          string ss;
+          cin>>ss;
+          
+          for(int i=0;i<n;i++)
+          {
+              if(ss==arr[i])
+              {
+                  check[i]=true;
+              }
+          }
+      }
+  }
+  for(int i=0;i<n;i++)
+  {
+      if(check[i]==true)
+      {
+          cout<<"YES"<<" ";
+          
+      }
+      else if(check[i]==false)
+      {
+          cout<<"NO"<<" ";
+      }
+  }
+    return 0;
+}
