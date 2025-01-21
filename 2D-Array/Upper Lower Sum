@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int n,m;
+    cin>>n>>m;
+    int A[n][m];
+    int tot=0;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            cin>>A[i][j];
+            tot+=A[i][j];
+        }
+    }
+    
+    int sum=0;
+    int diff=0;
+    
+    for(int i=0;i<n;i++)
+    {
+        for(int j=i;j<m;j++)
+        {
+            sum+=A[i][j];
+            if(i!=j)
+            {
+                diff+=A[i][j];
+            }
+        }
+    }
+    cout<<sum<<endl;
+    cout<<tot-diff<<endl;
+    return 0;
+}
