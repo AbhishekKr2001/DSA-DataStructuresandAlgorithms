@@ -1,0 +1,54 @@
+#include <iostream>
+#include<math.h>
+#include<climits>
+using namespace std;
+int main() {
+    //this problem is no asking to arrange them in the beginnig it is asking that in a subarray of size count the number of swaps needed;
+   long long n,k;
+   cin>>n>>k;
+   
+   
+   
+   long long arr[n];
+   
+   int count=0;
+   
+   for(int i=0;i<n;i++)
+   {
+       cin>>arr[i];
+       if(arr[i]<=k){//numbers smaller than k
+           count++;
+       }
+   }
+   int result=0;
+  int sum;
+  
+   for(int i=0;i<count;i++)//counting the numbers smaller than k in window of size count as it is the size;
+   {
+       if(arr[i]<=k){
+           result++;
+       }
+   }
+  sum=result;
+  
+   for(int i=count;i<n;i++)
+   {
+      
+       
+    if(arr[i]<=k)
+     {
+       result++;
+        
+      }
+   
+    if(arr[i-count]<=k)
+     {
+         result--;
+       
+     } 
+    
+      sum=max(result,sum);
+   }
+ cout<<count-sum;
+    return 0;
+}

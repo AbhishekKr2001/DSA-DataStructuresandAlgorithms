@@ -1,0 +1,24 @@
+#include <iostream>
+#include<math.h>
+using namespace std;
+int main() {
+   long long n;
+   cin>>n;
+   long long arr[n];
+   
+   for(int i=0;i<n;i++)
+   {
+       cin>>arr[i];
+   }
+   
+   long long m=pow(10,9)+7;
+   long long ans=0;
+   
+   for(int i=0;i<n ;i++)
+   {
+       long long contribution=(((((i+1)%m)*((n-i)%m))%m) *(arr[i]%m))%m;
+       ans=((ans%m)+(contribution%m))%m;
+   }
+   cout<<ans;
+    return 0;
+}

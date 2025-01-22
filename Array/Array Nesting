@@ -1,0 +1,31 @@
+#include <iostream>
+#include<set>
+using namespace std;
+int main() {
+    // your code goes here
+    int n;
+   cin>>n;
+   int arr[n];
+   for(int i=0;i<n;i++){
+       cin>>arr[i];
+   }
+  int len=0;
+   for(int i=0;i<n;i++){
+       int current=i;
+    set<int> mySet;
+   for(;current<n;)
+   {
+       current=arr[current];
+       if(mySet.find(current)!=mySet.end())
+       {
+           break;
+       }
+       else
+       {
+           mySet.insert(current);
+       }
+   }int l=mySet.size();
+       len=max(len,l);
+   }cout<<len;
+    return 0;
+}
