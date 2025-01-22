@@ -1,0 +1,51 @@
+#include <iostream>
+#include<string.h>
+using namespace std;
+int main() {
+   long long n;
+   cin>>n;
+   bool flag=true;
+   long long i=n;
+   while(flag){
+       int prime=true;
+       int palindrome=true;
+      long long  number=i;
+       if(number==1){
+
+          i++;
+
+          cout<<i;
+
+          break;
+
+      }
+       for(int j=2;j<number/2;j++){
+           if(number%j==0){
+               prime=false;
+           }
+       }
+       if(prime){
+           
+           long long temp = number;
+          long long rem,reverse=0;
+         while(temp != 0)
+        {
+          rem = temp % 10;
+          reverse = reverse * 10 + rem;
+          temp /= 10;
+        }
+    
+   
+    if (number == reverse)
+        palindrome=true;
+    else
+       palindrome=false;
+       }
+       if(prime==true && palindrome==true){
+           flag=false;
+           cout<<number;
+       }
+       i++;
+   }
+    return 0;
+}

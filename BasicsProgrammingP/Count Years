@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int ram,shyam;
+    cin>>ram>>shyam;
+    int i=0;
+    bool flag=true;
+   while(flag==true){
+        i++;
+       ram*=3;
+       shyam*=2;
+       if(ram>shyam){
+           flag=false;
+           break;
+       }
+      
+   }cout<<i;
+    return 0;
+}

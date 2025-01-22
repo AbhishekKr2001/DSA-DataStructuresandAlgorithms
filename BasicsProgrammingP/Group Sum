@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+int main() {
+    long long k;
+    cin>>k;
+    long long sum=0;
+  for(int i=1;i<k;i++)
+  { sum+=i; 
+      
+  } sum=sum*2+1;
+  long long result=0; 
+  for(int i=1;i<=k;i++)
+  { result+=sum; sum+=2;
+  } 
+  cout<<result;
+    return 0;
+}

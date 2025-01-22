@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+   
+    int a[3];
+    for (int i = 0; i < 3; i++) {
+        cin >> a[i];
+    }
+
+    
+    int b[3];
+    for (int i = 0; i < 3; i++) {
+        cin >> b[i];
+    }
+
+    // Initialize Alice's and Bob's comparison points to zero
+    int alice_points = 0;
+    int bob_points = 0;
+
+    // Compare ratings for each category and update the points
+    for (int i = 0; i < 3; i++) {
+        if (a[i] > b[i]) {
+            alice_points++;
+        } else if (a[i] < b[i]) {
+            bob_points++;
+        }
+    }
+
+    // Print the comparison points
+    cout << alice_points << " " << bob_points << endl;
+
+    return 0;
+}

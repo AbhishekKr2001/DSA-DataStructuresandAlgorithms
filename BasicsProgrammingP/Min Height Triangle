@@ -1,0 +1,11 @@
+#include <iostream>
+#include<math.h>
+using namespace std;
+int main() {
+   int b,a,h;
+   cin>>b>>a;
+   float tot=a*2;
+   h=ceil(tot/b);
+   std::cout << h << std::endl;
+    return 0;
+}

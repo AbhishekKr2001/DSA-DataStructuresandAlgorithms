@@ -1,0 +1,23 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main() {
+    int withdrawl;
+    float initial;
+    
+    cin>>withdrawl>>initial;
+    
+    float chargeByBank=0.50;
+    
+    if((withdrawl % 5==0) && ((withdrawl+chargeByBank)<=initial))
+    {
+        initial-=withdrawl;
+        initial-=chargeByBank;
+       cout<<fixed<<setprecision(2)<<initial;
+    }
+    else if(((withdrawl+chargeByBank) >= initial) || (withdrawl % 5 !=0))
+    {
+        cout<<fixed<<setprecision(2)<<initial;
+    }
+    return 0;
+}

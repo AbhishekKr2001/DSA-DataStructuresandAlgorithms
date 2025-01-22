@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int px,py,qx,qy;
+    int rx=0;
+    int ry=0;
+    cin>>px>>py>>qx>>qy;
+    int dx=px-qx;
+    int dy=py-qy;
+    rx=qx-dx;
+    ry=qy-dy;
+    cout<<rx <<" "<<ry;
+    
+    return 0;
+}

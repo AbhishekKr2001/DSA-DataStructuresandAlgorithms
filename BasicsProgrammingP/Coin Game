@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+int main() {
+ int n;
+ cin>>n;
+ int A[n];
+ int even=0; 
+ int odd=0;
+ 
+ for(int i=0;i<n;i++){
+     cin>>A[i];
+     if(i%2==0){
+         even+=A[i];
+     }
+     if(i%2!=0){
+         odd+=A[i];
+     }
+ }
+ if(even!=odd)
+ {
+     if(even>odd)
+     {
+         cout<<odd*2;
+     }
+     else if(even<odd)
+     {
+         cout<<even*2;
+     }
+ }else if(even==odd){
+     cout<<odd*2;
+ }
+ 
+    return 0;
+}

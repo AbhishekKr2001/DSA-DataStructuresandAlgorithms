@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int testcases;
+    cin>>testcases;
+    
+    while(testcases--)
+    {
+        int s,w1,w2,w3;
+        cin>>s>>w1>>w2>>w3;
+        
+    
+     int count=0;
+     if (w1 + w2 + w3 <= s)
+         count = 1;
+     else if ((w1 + w2) <= s or (w2 + w3) <= s)
+         count = 2;
+     else
+         count = 3;
+     
+   cout<<count<<endl;
+   
+    }
+    return 0;
+}

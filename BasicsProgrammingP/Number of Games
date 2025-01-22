@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int p,s,m,d;
+    cin>>p>>d>>m>>s;
+    int result = 0;
+    while( s >= p){
+        s -= p;
+        p = max(m, p-d);
+        result++;
+    }
+   cout<< result;
+    return 0;
+}
